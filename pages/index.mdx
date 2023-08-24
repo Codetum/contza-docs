@@ -1,11 +1,29 @@
-# Introduction
- 
-Welcome to Nextra! This is a basic docs template. You can use it as a starting point for your own project :)
+# Getting started
 
-## What is Nextra?
+This article explains how to get started with Contza. By end of this page, you will have Contza ready to be used in your React application.
 
-A **simple**, **powerful** and **flexible** site generation framework with everything you love from Next.js.
+Start things off by installing the `@contza/react` package.
+```console copy
+yarn add @contza/react
+```
 
-## Documentation
+## Setup Contza Provider
+Wrap you React application with `<ContzaProvider />` component. Contza Provider basically shares it's context with all the other Contza components.
+```jsx copy
+import React from "react";
+import { ContzaProvider } from "@contza/react";
 
-The documentation is available at [https://nextra.site](https://nextra.site).
+const App = () => {
+  return (
+    <ContzaProvider>
+      {/* Rest of the app */}
+    </ContzaProvider>
+  );
+};
+
+export default App;
+```
+
+Congratulations, you now have Contza fully setup to your project.
+
+Now you can start adding Contza components to make your content editable!

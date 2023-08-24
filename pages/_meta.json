@@ -1,15 +1,8 @@
 {
-  "index": "Introduction",
-  "another": "Another Page",
-  "advanced": "Advanced (A Folder)",
-  "about": {
-    "title": "About",
-    "type": "page"
-  },
-  "contact": {
-    "title": "Contact ↗",
-    "type": "page",
-    "href": "https://twitter.com/shuding_",
-    "newWindow": true
-  }
+  "index": "Getting started",
+  "editable-content": "Making content editable",
+  "components": "Components",
+  "nextjs": "Using with Next.js",
+  "concepts": "Concepts",
+  "packages": "Packages"
 }
