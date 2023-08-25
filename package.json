@@ -4,6 +4,7 @@
   "description": "Contza Documentation",
   "author": "Arttu Pesonen <arttu@codetum.com>",
   "license": "MIT",
+  "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
