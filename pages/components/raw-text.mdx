@@ -1,3 +1,53 @@
-# Text
+# Raw text `<ContzaRawText />`
+React component that renders just a string, nothing more.
+Raw text is very useful when you don't want any HTML tags. For example one use case is defining page's meta data.
 
-Content
+## Props
+
+<table style={{ marginTop: "20px" }}>
+  <tbody>
+  {[
+    { name: "children", text: "Name of the field" },
+    { name: "name", text: "Alternative way to specify the name of the field (can be overrided by 'children' prop)" },
+    { name: "placeholder", text: "Placeholder text when editing the text (default: 'Enter Field Name...')" },
+  ].map((prop) => (
+    <tr key={prop.name}>
+      <td>{prop.name}</td>
+      <td>{prop.text}</td>
+    </tr>
+  ))}
+  </tbody>
+</table>
+
+## Examples
+Here are a few examples how to use Text component.
+
+### Heading with description
+```jsx copy
+import { ContzaRawText } from "@contza/react";
+
+const Component = () => {
+  return (
+    <p>
+      <ContzaRawText>Heading: Title</ContzaRawText>
+    </p>
+  );
+};
+
+export default Component;
+```
+
+### Using the "name" prop
+```jsx copy
+import { ContzaRawText } from "@contza/react";
+
+const Component = () => {
+  return (
+    <p>
+      <ContzaRawText name="Description" />
+    </p>
+  );
+};
+
+export default Component;
+```

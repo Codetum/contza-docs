@@ -1,3 +1,62 @@
-# Text
+# Text `<ContzaText />`
+React component that renders a text with minimalistic formattings such as line breaks.
 
-Content
+## Props
+
+<table style={{ marginTop: "20px" }}>
+  <tbody>
+  {[
+    { name: "children", text: "Name of the field" },
+    { name: "name", text: "Alternative way to specify the name of the field (can be overrided by 'children' prop)" },
+    { name: "placeholder", text: "Placeholder text when editing the text (default: 'Enter Field Name...')" },
+  ].map((prop) => (
+    <tr key={prop.name}>
+      <td>{prop.name}</td>
+      <td>{prop.text}</td>
+    </tr>
+  ))}
+  </tbody>
+</table>
+
+## Examples
+Here are a few examples how to use Text component.
+
+### Heading with description
+```jsx copy
+import { ContzaText } from "@contza/react";
+
+const Component = () => {
+  return (
+    <header>
+      <h1>
+        <ContzaText>Heading: Title</ContzaText>
+      </h1>
+      <p>
+        <ContzaText>Heading: Description</ContzaText>
+      </p>
+    </header>
+  );
+};
+
+export default Component;
+```
+
+### Using the "name" prop
+```jsx copy
+import { ContzaText } from "@contza/react";
+
+const Component = () => {
+  return (
+    <header>
+      <h1>
+        <ContzaText name="Heading: Title" />
+      </h1>
+      <p>
+        <ContzaText name="Heading: Description" />
+      </p>
+    </header>
+  );
+};
+
+export default Component;
+```

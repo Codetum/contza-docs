@@ -1,3 +1,74 @@
-# Text
+# List `<ContzaList />`
+Renders a list of elements or components. This is something almost equal to `array.map()`.
 
-Content
+Contza components inside `<ContzaList />` have their own scope. So for example if you have a `<ContzaText>Title</ContzaText>` in the same level as the list, you can use the "Title" field name inside the list component.
+
+## Props
+List component has all default html attributes (id, className, etc) and also a few Contza specific props.
+<table style={{ marginTop: "20px" }}>
+  <tbody>
+  {[
+    { name: "name", text: "Defines the name of the field." },
+    { name: "as", text: "Rendered element. Defaults to React Fragment." },
+    { name: "children", text: "Rendered list item." },
+  ].map((prop) => (
+    <tr key={prop.name}>
+      <td>{prop.name}</td>
+      <td>{prop.text}</td>
+    </tr>
+  ))}
+  </tbody>
+</table>
+
+## Examples
+Here are a few examples how to use List component.
+
+### A list of texts
+```jsx copy
+import { ContzaList, ContzaText } from "@contza/react";
+
+const Component = () => {
+  return (
+    <ContzaList name="List of texts">
+      <ContzaText>Text</ContzaText>
+    </ContzaList>
+  );
+};
+
+export default Component;
+```
+
+### Using "as" prop
+```jsx copy
+import { ContzaList, ContzaText } from "@contza/react";
+
+const Component = () => {
+  return (
+    <ContzaList name="List of texts" as="ul">
+      <li>
+        <ContzaText>Text</ContzaText>
+      </li>
+    </ContzaList>
+  );
+};
+
+export default Component;
+```
+
+### Using item index
+```jsx copy
+import { ContzaList, ContzaText } from "@contza/react";
+
+const Component = () => {
+  return (
+    <ContzaList name="List of texts">
+      {(listKey, index) => {
+        const isFirst = index === 0;
+        return <ContzaText>{isFirst ? "First text" : "Text"}</ContzaText>;
+      }}
+    </ContzaList>
+  );
+};
+
+export default Component;
+```
