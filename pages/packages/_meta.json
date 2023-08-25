@@ -1,4 +1,4 @@
 {
   "contza-react": "@contza/react",
-  "contza-sdk": "@contza/sdk"
+  "contza-client": "@contza/client"
 }

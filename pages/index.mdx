@@ -2,20 +2,34 @@
 
 This article explains how to get started with Contza. By end of this page, you will have Contza ready to be used in your React application.
 
-Start things off by installing the `@contza/react` package.
+## Create Contza website
+Let's start things by [Creating a Contza account](https://app.contza.com/register).
+After you have logged in to your account make sure you are on [My websites](https://app.contza.com/user/websites) page. Then click "Create website" button on the top right corner.
+Give the website a name and a slug. Slug is just a human readable identifier for the website.
+
+![Create a Contza website](/images/create-website.png)
+
+## Install packages
+Install Contza React component library (required).
 ```console copy
 yarn add @contza/react
+```
+If you would like to use features such as Static site generation (SSG) or [Server-side rendering (SSR)](/concepts/ssr), you should also install [@contza/client](/packages/contza-client) (optional).
+```console copy
+yarn add @contza/client
 ```
 
 ## Setup Contza Provider
 Wrap you React application with `<ContzaProvider />` component. Contza Provider basically shares it's context with all the other Contza components.
+
+Finalize the installation by adding the `websiteId` prop for ContzaProvider. You can found it from `My Websites -> Your Website -> Settings -> API Access`
 ```jsx copy
 import React from "react";
 import { ContzaProvider } from "@contza/react";
 
 const App = () => {
   return (
-    <ContzaProvider>
+    <ContzaProvider websiteId="your-website-id">
       {/* Rest of the app */}
     </ContzaProvider>
   );

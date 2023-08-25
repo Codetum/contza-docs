@@ -1,0 +1,39 @@
+# Creating a content
+This article explains how to make create a content Contza. By end of this page you will have your first content created and ready to be used.
+
+## Creating a content
+First we will create a content in Contza. You can do this at `My Websites -> Your Website -> Contents` by clicking the "Add content" button at top right corner.
+
+![Create a Contza content](/images/create-content.png)
+
+## Content options
+Let's quickly go through the options you can use when creating a content.
+
+### Name
+This one is simple, just the display name of the content.
+
+### Slug
+An identifier of the content.
+If your content is a page, **you need to use the same slug as in your website's page structure**. For example if your page is served "/about-me", you should set the slug to "about-me"
+The slug won't matter when your content is not a page but instead it's for a component such as navbar, for example.
+
+### Define as a page
+This option defines whether your content is a page or not. If your content is a page, you need to define the slugs based on your page structure, just like described above.
+
+### Define as a root content
+Your website probably has an index page which doesn't have a slug (`https://your-website.com/`). If you are creating a content for this page you should enable this option.
+In this situation you can set your slug into whatever you like but we advice you to set it into "index".
+
+### Collection
+Collection makes it possible to nest contents and have multiple contents inside another. It basically acts as a folder.
+This is very useful when you are creating a blog or nesting pages inside another.
+
+Here are a few examples when you need to use collection option:
+- You are creating a blog with `/blog` and `/blog/[id]` routes. In this case your would create a content with "blog" slug, and then inside the that content you would add the posts you like.
+- When you want a page structure like this `/services`, `/services/a` and `/services/b`. In this case you would create a content with "services" slug, and then inside that content you would add the the contents with "index", "a" and "b" slugs.
+
+### Pinned
+Pinned is just a visual thing in the CMS and doesn't affect any technical things. It basically adds the content into the content sidebar on the left side of the screen.
+
+
+Congratulations! You now know how to create contents in Contza! You can now move forward into making the created content editable.

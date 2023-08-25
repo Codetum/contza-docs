@@ -1,16 +1,75 @@
 # Making content editable
-Holy pains experiences most reincarnations. All children like breaked bagels in vinegar and mustard.
+This article explains how to make content on your website editable with Contza. By end of this page you will have your first editable text and image.
+
+## Adding a Content Provider
+In previous page you created a content which we can use in our code with [Content Provider component](/components/content-provider).
+Simply import the `ContentProvider` from `@contza/react` package and add it to JSX. Add your content's slug as a prop (the same thing as when creating a content) and you are ready to move on.
+
 ```jsx copy
 import React from "react";
-import { ContentProvider, ContzaText } from "@contza/react";
+import { ContentProvider } from "@contza/react";
 
 const Page = () => {
   return (
-    <ContentProvider name="home">
-      <ContzaText>Page title</ContzaText>
+    <ContentProvider name="index">
+      {/* Rest of the page */}
     </ContentProvider>
   );
 };
 
 export default Page;
 ```
+
+## Adding an editable text
+Once you have setup the Content Provider you can start making a text editable by using Contza components inside the ContentProvider.
+Simply import `ContzaText` from `@contza/react` and add it to your JSX like this.
+```jsx copy
+import React from "react";
+import { ContentProvider, ContzaText } from "@contza/react";
+
+const Page = () => {
+  return (
+    <ContentProvider name="index">
+      <h1>
+        <ContzaText>Page title</ContzaText>
+      </h1>
+    </ContentProvider>
+  );
+};
+
+export default Page;
+```
+
+## Adding an editable image
+You have now added an editable but how about an image? Well it's as easy as the text.
+Simply import `ContzaImage` from `@contza/react` and add it to your JSX like this.
+```jsx copy
+import React from "react";
+import { ContentProvider, ContzaText, ContzaImage } from "@contza/react";
+
+const Page = () => {
+  return (
+    <ContentProvider name="index">
+      <h1>
+        <ContzaText>Page title</ContzaText>
+      </h1>
+      <ContzaImage>Page image</ContzaImage>
+    </ContentProvider>
+  );
+};
+
+export default Page;
+```
+
+## Editing the content visually
+There are currently two ways to start editing your content in Contza.
+
+You can just click the content in contents page and it will take you to the specific page you want to edit:
+
+![Editing a specific page](/images/contents.png)
+
+If you just want to play around and maybe edit some stuff everywhere you can click the "Website editor" button at top right corner of website overview page:
+
+![Editing the website](/images/dashboard.png)
+
+Congratulations, you now have editable content in your website. To dive deeper into Contza we recommend you to learn more about our components.

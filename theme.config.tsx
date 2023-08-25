@@ -9,7 +9,7 @@ const config: DocsThemeConfig = {
   chat: {
     link: "https://discord.gg/hTVDUjgNfW",
   },
-  docsRepositoryBase: "https://github.com/Codetum/contza-docs",
+  docsRepositoryBase: "https://github.com/Codetum/contza-docs/tree/main",
   footer: {
     text: "Contza Documentation",
   },
