@@ -1,3 +1,36 @@
-# @contza-sdk
+# @contza/client
 
-Content
+Contza client is simply a Javascript SDK for Contza API. It can be used when Contza components are not enough for your use case or you want to use different rendering methods such as SSR or SSG.
+
+## Install NPM package
+```console copy
+yarn add @contza/client
+```
+
+## Initialize Contza client
+```typescript filename="src/contza.ts" copy
+import { ContzaClient } from "@contza/client";
+
+export const contzaClient = new ContzaClient("contza-website-id", "contza-api-key");
+```
+
+## Getting a single content
+We are expecting that we have a content with 'index' slug.
+```typescript filename="src/index.ts" copy
+import { contzaClient } from "../utils/contza.ts";
+
+const content = await contzaClient.findOne("index");
+
+console.log(content);
+```
+
+## Getting a multiple contents from a collection
+We are expecting that we have a content with 'blog' slug. The content should also be defined as a [collection](/creating-a-content#collection).
+```typescript filename="src/index.ts" copy
+import { contzaClient } from "../utils/contza.ts";
+
+const contents = await contzaClient.findMany("blog");
+
+console.log(contents);
+```
+

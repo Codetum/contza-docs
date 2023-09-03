@@ -1,3 +1,41 @@
-# Contza Provider
+# Contza Provider `<ContzaProvider />`
+Contza Provider is an essential component and you need to wrap your application with it in order to Contza function.
 
-Content
+## Props
+
+<table style={{ marginTop: "20px" }}>
+  <tbody>
+  {[
+    { name: "children", text: "Children component." },
+    { name: "websiteId", text: "Defines the Contza website identifier." },
+    {
+      name: "initialContents",
+      text: "Array of Contza contents. This prop is really useful when dealing with different rendering strategies such as SSR."
+    },
+  ].map((prop) => (
+    <tr key={prop.name}>
+      <td>{prop.name}</td>
+      <td>{prop.text}</td>
+    </tr>
+  ))}
+  </tbody>
+</table>
+
+## Examples
+Here is an example how to use Contza provider component.
+
+### Basic usage
+```jsx copy
+import { ContzaProvider } from "@contza/react";
+
+const App = () => {
+  return (
+    <ContzaProvider websiteId="your-website-id">
+      {/* Rest of the application */}
+    </ContzaProvider>
+  );
+};
+
+export default App;
+```
+

@@ -6,11 +6,11 @@ Image component has all default props of `<img />` element and also a few Contza
 <table style={{ marginTop: "20px" }}>
   <tbody>
   {[
-    { name: "name", text: "Defines the name of the field" },
     {
       name: "children",
-      text: "Acts as image renderer. For example if would like to use Next.js's image component you could do it with this."
+      text: "Name of the field or image renderer function (for example if would like to use Next.js's image component you could do it with the image renderer)"
     },
+    { name: "name", text: "Alternative way to specify the name of the field (can be overrided by 'children' prop)" },
   ].map((prop) => (
     <tr key={prop.name}>
       <td>{prop.name}</td>
@@ -24,6 +24,20 @@ Image component has all default props of `<img />` element and also a few Contza
 Here are a few examples how to use Image component.
 
 ### Basic usage
+Renders normal html image element with predefined 'src' attribute.
+```jsx copy
+import { ContzaImage } from "@contza/react";
+
+const Component = () => {
+  return (
+      <ContzaImage alt="Heading image">Heading image</ContzaImage>
+  );
+};
+
+export default Component;
+```
+
+### Using the "name" prop
 Renders normal html image element with predefined 'src' attribute.
 ```jsx copy
 import { ContzaImage } from "@contza/react";

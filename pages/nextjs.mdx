@@ -1,9 +1,108 @@
 # Using with Next.js
+Contza is designed for Next.js from the ground up. At the moment, Contza does not have a Next.js specific package, so we strongly advise you to use `@contza/client` package when using Contza with Next.js.
 
-## Example
+See [this article](/packages/contza-client) to learn more about Contza client.
 
-## Server-side rendering (SSR)
+## Using App Router
 
-## Statis Site Generation (SSG)
+### Server components
+```tsx filename="pages/index.tsx" copy
+import { ContzaClient } from "@contza/client";
+import { ContentProvider } from "@contza/react";
 
-## Incremental Static Regeneration (ISR)
+const IndexPage = async () => {
+    const contzaClient = new ContzaClient("contza-website-id", "contza-api-key");
+    const content = await contzaClient.findOne("index");
+
+    return (
+        <ContentProvider slug="index" initialContent={content}>
+           {/* Rest of the page */}
+        </ContentProvider>
+    );
+};
+
+export default IndexPage;
+```
+
+### Client components
+```tsx filename="pages/index.tsx" copy
+"use client";
+
+import { ContentProvider } from "@contza/react";
+
+const IndexPage = () => {
+    return (
+        <ContentProvider slug="index">
+           {/* Rest of the page */}
+        </ContentProvider>
+    );
+};
+
+export default IndexPage;
+```
+
+## Using Pages Router
+
+### Server-side rendering (SSR)
+```tsx filename="pages/index.tsx" copy
+import { ContzaClient, ContzaContent } from "@contza/client";
+import { ContentProvider } from "@contza/react";
+import { GetServerSideProps, NextPage } from "next";
+
+interface IndexPageData {
+  content: ContzaContent;
+}
+
+const IndexPage: NextPage<IndexPageData> = ({ content }) => {
+  return (
+    <ContentProvider slug="index" initialContent={content}>
+      {/* Rest of the page */}
+    </ContentProvider>
+  );
+};
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  const contzaClient = new ContzaClient("contza-website-id", "contza-api-key");
+  const content = await contzaClient.findOne("index");
+
+  return {
+    props: {
+      content,
+    },
+  };
+};
+
+export default IndexPage;
+```
+
+### Statis Site Generation (SSG)
+```tsx filename="pages/index.tsx" copy
+import { ContzaClient, ContzaContent } from "@contza/client";
+import { ContentProvider } from "@contza/react";
+import { GetStaticProps, NextPage } from "next";
+
+interface IndexPageData {
+  content: ContzaContent;
+}
+
+const IndexPage: NextPage<IndexPageData> = ({ content }) => {
+  return (
+    <ContentProvider slug="index" initialContent={content}>
+      {/* Rest of the page */}
+    </ContentProvider>
+  );
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+  const contzaClient = new ContzaClient("contza-website-id", "contza-api-key");
+  const content = await contzaClient.findOne("index");
+
+  return {
+    props: {
+      content,
+    },
+  };
+};
+
+export default IndexPage;
+```

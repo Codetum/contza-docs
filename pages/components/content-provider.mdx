@@ -1,3 +1,62 @@
-# Content Provider
+# Content Provider `<ContentProvider />`
+Content provider initializes a content and let's Contza know that all of the children Contza components belong to the content.
 
-Content
+## Props
+
+<table style={{ marginTop: "20px" }}>
+  <tbody>
+  {[
+    { name: "slug", text: "Defines the slug of the content (for example 'index' or 'blog/blog-post-name')" },
+    {
+      name: "locale",
+      text: "Defines what locale should be used (note that this prop doesn't take an effect if the content has any initial content)"
+    },
+    {
+      name: "initialContent",
+      text: "Initial content. This prop is really useful when dealing with different rendering strategies such as SSR."
+    },
+    { name: "children", text: "Children component." },
+  ].map((prop) => (
+    <tr key={prop.name}>
+      <td>{prop.name}</td>
+      <td>{prop.text}</td>
+    </tr>
+  ))}
+  </tbody>
+</table>
+
+## Examples
+Here are few examples how to use Contza provider component.
+
+### Basic usage
+```jsx copy
+import { ContentProvider } from "@contza/react";
+
+const Page = () => {
+  return (
+    <ContentProvider slug="index">
+      {/* Rest of the application */}
+    </ContentProvider>
+  );
+};
+
+export default Page;
+```
+
+### Using with 'locale' prop
+In this example we will use a finnish version of the content.
+```jsx copy
+import { ContentProvider } from "@contza/react";
+
+const Page = () => {
+  return (
+    <ContentProvider slug="index" locale="fi">
+      {/* Rest of the application */}
+    </ContentProvider>
+  );
+};
+
+export default Page;
+```
+
+
