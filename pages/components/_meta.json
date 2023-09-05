@@ -4,6 +4,7 @@
   "list": "List",
   "rich-text": "Rich text",
   "raw-text": "Raw text",
+  "use-contza-fields": "useContzaFields()",
   "contza-provider": "Contza Provider",
   "content-provider": "Content Provider"
 }

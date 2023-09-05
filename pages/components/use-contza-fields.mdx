@@ -1,0 +1,98 @@
+# useContzaFields()
+React hook for using Contza fields "programatically".
+
+## Returned values
+
+<table style={{ marginTop: "20px" }}>
+  <tbody>
+  {[
+    { name: "text", text: "Returns text with minimalistic html formattings (equal to <ContzaText />)" },
+    { name: "image", text: "Returns image information (equal to <ContzaImage />)" },
+    { name: "rawText", text: "Returns raw string, nothing more (equal to <ContzaRawText />)" },
+    { name: "boolean", text: "Returns a boolean" },
+  ].map((prop) => (
+    <tr key={prop.name}>
+      <td>{prop.name}</td>
+      <td>{prop.text}</td>
+    </tr>
+  ))}
+  </tbody>
+</table>
+
+## Examples
+Here are a few examples how to use `useContzaFields()` hook.
+
+### Text
+```jsx copy
+import { useContzaFields } from "@contza/react";
+
+const SEO = () => {
+  const { rawText } = useContzaFields();
+
+  return (
+    <head>
+      <title>{rawText`Title`}</title>
+    </head>
+  );
+};
+
+export default SEO;
+```
+
+### Image
+```jsx copy
+import { useContzaFields } from "@contza/react";
+
+const SEO = () => {
+  const { image } = useContzaFields();
+
+  return (
+    <head>
+      <meta property="og:image" content={image("Image").src} />
+    </head>
+  );
+};
+
+export default SEO;
+```
+
+### Raw text
+```jsx copy
+import { useContzaFields } from "@contza/react";
+
+const SEO = () => {
+  const { rawText } = useContzaFields();
+
+  return (
+    <head>
+      <title>{rawText("Title")}</title>
+    </head>
+  );
+};
+
+export default SEO;
+```
+
+### Boolean
+```jsx copy
+import { useContzaFields, ContzaText } from "@contza/react";
+
+const SEO = () => {
+  const { boolean } = useContzaFields();
+
+  const isVisible = boolean("Is visible");
+
+  return (
+    <div>
+      {isVisible ? (
+        <ContzaText>Visible</ContzaText>
+      ) : (
+        <ContzaText>Not visible</ContzaText>
+      )}
+    </div>
+  );
+};
+
+export default SEO;
+```
+
